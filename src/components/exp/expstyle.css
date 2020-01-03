@@ -1,0 +1,13 @@
+.Exp-card{
+    width:350px;
+    padding-top:100px;
+    margin:0 auto;
+    text-align: center;
+}
+.exp-text{
+    font-size: 70px;
+}
+
+input{
+    width:100%;
+}

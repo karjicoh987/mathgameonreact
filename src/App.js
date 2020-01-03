@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import Header from './components/NavPanel/Header'
-import Exp from './components/exp/Exp'
-import PanelInput from './components/exp/PanelInput'
+import ExpCard from './components/exp/ExpCard'
 
 
 class App extends Component{
@@ -9,8 +8,7 @@ class App extends Component{
     return(
       <div>
         <Header/>
-        <Exp/>
-        <PanelInput/>
+        <ExpCard />
       </div>
     )
   }
