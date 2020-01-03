@@ -1,0 +1,22 @@
+.Text-body{
+    position: relative;
+    height: 100px;
+    text-align: center;
+}
+.text-content{
+    position: absolute;
+    top: 50%;
+    left: 35%;
+}
+.text{
+    margin:25px;
+    font-size: 27px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color:black;
+    cursor: pointer;
+    
+}
+.text:hover{
+    color:gray;
+    border-bottom:3px solid gray;
+}
