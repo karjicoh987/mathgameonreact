@@ -1,0 +1,9 @@
+.button-start{
+    height: 100px;
+    width:400px;
+    font-size: 60px;
+    background-color: greenyellow;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+}

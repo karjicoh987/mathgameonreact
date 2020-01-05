@@ -12,7 +12,7 @@ class ExpCard extends Component{
         */
         this.state = {
             exp:"",
-            GameOn:true
+            GameOn:false
         }
         //Привязка копки к объекту
         this.GenExp = this.GenExp.bind(this);
@@ -26,7 +26,7 @@ class ExpCard extends Component{
             <div className = "Exp-card">
                 <Exp GenExp = {this.state.exp}/>
                 <PanelInput/>
-                <button onClick = {this.GenExp}>✔</button>
+                <button className = "ButtonGenExp" onClick = {this.GenExp}>✔</button>
             </div>  
         )
     }
