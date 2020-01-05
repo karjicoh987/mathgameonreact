@@ -11,7 +11,7 @@ class ExpCard extends Component{
         */
         this.state = {
             exp:"",
-            response:0,
+            response:this.GenExp(),
             value:""
         }
         //Привязка копки к объекту
@@ -21,10 +21,16 @@ class ExpCard extends Component{
     UserInput(e){
         this.setState({value: e.target.value});
     }
+    GenExp(){
+        return Math.floor(Math.random() * Math.floor(100)) + " + " + Math.floor(Math.random() * Math.floor(100))
+    }
     GameChanger(){
-        this.setState({value:"",
-                       exp:Math.floor(Math.random() * Math.floor(100)) + " + " + Math.floor(Math.random() * Math.floor(100)),
-                       response:eval(this.exp)})
+        this.setState({
+            value:"",
+            exp:this.GenExp,
+            response:eval(this.exp)
+        }
+        )
         if (this.state.value === this.state.response){
             alert("Well done")
         }else{
