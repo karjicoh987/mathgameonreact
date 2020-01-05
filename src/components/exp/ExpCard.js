@@ -12,7 +12,7 @@ class ExpCard extends Component{
         */
         this.state = {
             exp:"",
-            GameOn:false
+            response:0,
         }
         //Привязка копки к объекту
         this.GenExp = this.GenExp.bind(this);
@@ -20,6 +20,14 @@ class ExpCard extends Component{
     //Генерация выражения с рандомными числами
     GenExp(){
         this.setState({exp:Math.floor(Math.random() * Math.floor(100)) + " + " + Math.floor(Math.random() * Math.floor(100))})
+    }
+
+    Culc_exp(){
+        this.setState({response:eval(this.state.exp)})
+    }
+
+    GameChanger(){
+        
     }
     render(){
         return(
