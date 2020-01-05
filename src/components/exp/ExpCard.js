@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PanelInput from './PanelInput';
 import Exp from './Exp';
 import './expstyle.css'
 
@@ -13,28 +12,31 @@ class ExpCard extends Component{
         this.state = {
             exp:"",
             response:0,
+            value:""
         }
         //Привязка копки к объекту
-        this.GenExp = this.GenExp.bind(this);
+        this.GameChanger = this.GameChanger.bind(this);
+        this.UserInput = this.UserInput.bind(this)
     }
-    //Генерация выражения с рандомными числами
-    GenExp(){
-        this.setState({exp:Math.floor(Math.random() * Math.floor(100)) + " + " + Math.floor(Math.random() * Math.floor(100))})
+    UserInput(e){
+        this.setState({value: e.target.value});
     }
-
-    Culc_exp(){
-        this.setState({response:eval(this.state.exp)})
-    }
-
     GameChanger(){
-        
+        this.setState({value:"",
+                       exp:Math.floor(Math.random() * Math.floor(100)) + " + " + Math.floor(Math.random() * Math.floor(100)),
+                       response:eval(this.exp)})
+        if (this.state.value === this.state.response){
+            alert("Well done")
+        }else{
+            alert("You lose")
+        }
     }
     render(){
         return(
             <div className = "Exp-card">
                 <Exp GenExp = {this.state.exp}/>
-                <PanelInput/>
-                <button className = "ButtonGenExp" onClick = {this.GenExp}>✔</button>
+                <input type="text" value={this.state.value} onChange={this.UserInput} />
+                <button className = "ButtonGenExp" onClick = {this.GameChanger}>✔</button>
             </div>  
         )
     }
