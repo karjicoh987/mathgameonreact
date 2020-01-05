@@ -11,3 +11,16 @@
 input{
     width:100%;
 }
+Button{
+    width:60px;
+    height: 35px;
+    font-size: 20px;
+    background-color: greenyellow;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+Button:hover{
+    background-color:rgb(89, 206, 43);
+}

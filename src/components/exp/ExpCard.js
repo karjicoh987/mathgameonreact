@@ -26,7 +26,7 @@ class ExpCard extends Component{
             <div className = "Exp-card">
                 <Exp GenExp = {this.state.exp}/>
                 <PanelInput/>
-                <button onClick = {this.GenExp}>Жми</button>
+                <button onClick = {this.GenExp}>✔</button>
             </div>  
         )
     }
