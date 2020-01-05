@@ -1,18 +1,11 @@
 import React,{Component} from 'react'
 
 
-class Exp extends Component{
-    //Генерация выражения с рандомными числами
-    GenExp(){
-        return String(
-            Math.floor(Math.random() * Math.floor(100)) + " + " + Math.floor(Math.random() * Math.floor(100))
-        );
-    }
-    
+class Exp extends Component{    
     render(){
         return(
             <div className = "exp-text">
-                {this.GenExp()} = ?
+                {this.props.GenExp ? this.props.GenExp + "= ?" : null}
             </div>
         )
     }
