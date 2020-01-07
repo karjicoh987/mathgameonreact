@@ -5,7 +5,7 @@ class Exp extends Component{
     render(){
         return(
             <div className = "exp-text">
-                {this.props.GenExp + "= ?"}
+                {this.props.GenExp + " = ?"}
             </div>
         )
     }

@@ -27,8 +27,9 @@ class ExpCard extends Component{
     GenExp(){
         return Math.floor(Math.random() * Math.floor(100)) + " + " + Math.floor(Math.random() * Math.floor(100))
     }
+    
     GameChanger(){
-        let response = eval(this.state.exp)
+        let response = eval(this.state.exp) //Придумать чем заменить
         if (this.state.value == response){
             this.setState(prevState =>{
                return {

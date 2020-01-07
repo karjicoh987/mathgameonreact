@@ -19,9 +19,16 @@ class App extends Component{
     return(
       <div>
         <Header/>
-        <button className ="button-start" onClick = {this.GameStart}>Начать</button>
+        
         {this.state.GameOn?
-          <ExpCard />:null
+          <ExpCard />:
+          <div className = "button-container">
+           <input 
+              className = "button-start" 
+              type = "button" 
+              value = "Начать" 
+              onClick = {this.GameStart} />  
+        </div>
         }
       </div>
     )
