@@ -29,7 +29,7 @@ class ExpCard extends Component{
     }
     
     GameChanger(){
-        let response = eval(this.state.exp) //Придумать чем заменить
+        let response = (new Function('return ' + this.state.exp))()
         if (this.state.value == response){
             this.setState(prevState =>{
                return {

@@ -18,8 +18,7 @@ class App extends Component{
   render(){
     return(
       <div>
-        <Header/>
-        
+        <Header/>   
         {this.state.GameOn?
           <ExpCard />:
           <div className = "button-container">

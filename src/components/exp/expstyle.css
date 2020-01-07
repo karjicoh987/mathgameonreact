@@ -10,6 +10,14 @@
 
 input{
     width:100%;
+    border: none;
+    border-bottom:3px solid;
+}
+input:focus{
+    border-color: tomato;
+}
+input:hover{
+    border-color: tomato;
 }
 .ButtonGenExp{
     width:60px;
