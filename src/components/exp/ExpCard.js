@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Exp from './Exp';
 import Point from './Point';
+import VariableCard from './VariableCard'
 import './expstyle.css';
 
 class ExpCard extends Component{
@@ -19,17 +20,16 @@ class ExpCard extends Component{
         }
         //Привязка копки к объекту
         this.GameChanger = this.GameChanger.bind(this);
-        this.UserInput = this.UserInput.bind(this)
-    }
-    UserInput(e){
-        this.setState({value: e.target.value});
     }
     GenExp(){
         return Math.floor(Math.random() * Math.floor(100)) + " + " + Math.floor(Math.random() * Math.floor(100))
     }
+    CalculateExp(){
+        return (new Function('return ' + this.state.exp))()
+    }
     
-    GameChanger(){
-        let response = (new Function('return ' + this.state.exp))()
+    GameChanger(id){
+        let response = this.CalculateExp()
         if (this.state.value == response){
             this.setState(prevState =>{
                return {
@@ -45,18 +45,35 @@ class ExpCard extends Component{
         }
     }
     render(){
+        //TrueVariable  перменная необходимая для запоминания индекса правильного варианта
+        const TrueVariable = Math.floor(Math.random() * Math.floor(3))
+        
+        // Генерирование массива с вариантами ответа
+        const VarNumArr = new Array(3).fill(0).map( (n,i) =>{
+            if (i === TrueVariable){
+                return this.CalculateExp()
+            }
+            return (this.CalculateExp() + Math.floor(Math.random() * Math.floor(10)+1))
+        })
+
+        // Генерирование массива с компонентом VariableCard
+        const VariableCards = VarNumArr.map((num,i) => <VariableCard 
+                                                                    num = {num} 
+                                                                    key = {i} 
+                                                                    GameChanger = {this.GameChanger}
+                                                         />)
         return(
-            <div className = "Exp-card">
-                <Exp GenExp = {this.state.exp}/>
-                <input 
-                    type="text"
-                    value={this.state.value} 
-                    onChange={this.UserInput} 
-                />
-                <Point point = {this.state.userPoint}/>
-                <button 
-                    className = "ButtonGenExp"
-                    onClick = {this.GameChanger}>✔</button>
+            <div>
+                <div className = "Exp-card">
+                    <Exp GenExp = {this.state.exp}/>
+                    <Point point = {this.state.userPoint}/>
+                    <button 
+                        className = "ButtonGenExp"
+                        onClick = {this.GameChanger}>✔</button>     
+                </div>
+                <div className = "flex-box">
+                    {VariableCards}
+                </div>
             </div>  
         )
     }

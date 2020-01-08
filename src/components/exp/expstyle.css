@@ -32,3 +32,18 @@ input:hover{
 .ButtonGenExp:hover{
     background-color:rgb(89, 206, 43);
 }
+
+
+.ButtonVariable{
+    background-color: #0084FF;
+    width:15%;
+    height:10%;
+    border: 3px solid black;
+    margin: 30px;
+    font-size: 35px;
+    cursor: pointer;
+}
+.flex-box{
+    display: flex;
+    justify-content: center;
+}
