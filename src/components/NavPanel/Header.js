@@ -12,7 +12,7 @@ class Header extends Component{
         return(
             <div className = "Text-body">
                 <div className = "text-content">
-                    <img src = {Logo} height = "64" width = "64"/>
+                    <img alt = "Здесь логотип" src = {Logo} height = "64" width = "64"/>
                     {TextList}
                    
                 </div>  

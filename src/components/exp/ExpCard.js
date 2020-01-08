@@ -15,7 +15,6 @@ class ExpCard extends Component{
         */
         this.state = {
             exp:this.GenExp(),
-            value:"",
             userPoint:0
         }
         //Привязка копки к объекту
@@ -30,11 +29,10 @@ class ExpCard extends Component{
     
     GameChanger(num){
         let response = this.CalculateExp()
-        if (num == response){
+        if (num === response){
             this.setState(prevState =>{
                return {
                     exp:this.GenExp(),
-                    value:"",
                     userPoint:prevState.userPoint + 1
                     }
                 }   
@@ -66,10 +64,7 @@ class ExpCard extends Component{
             <div>
                 <div className = "Exp-card">
                     <Exp GenExp = {this.state.exp}/>
-                    <Point point = {this.state.userPoint}/>
-                    <button 
-                        className = "ButtonGenExp"
-                        onClick = {this.GameChanger}>✔</button>     
+                    <Point point = {this.state.userPoint}/>  
                 </div>
                 <div className = "flex-box">
                     {VariableCards}
