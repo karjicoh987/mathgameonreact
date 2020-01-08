@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import LvlData from './LvlData'
 import LvlCard from './LvlCard'
+import './lvlstyle.css'
 
 class LvlPanel extends Component{
     render(){
@@ -8,7 +9,7 @@ class LvlPanel extends Component{
             (card,i) => <LvlCard key = {i} {...card}/>
         )
         return(
-            <div>
+            <div className = "Flex-box">
                 {LvlCards}
             </div>
             

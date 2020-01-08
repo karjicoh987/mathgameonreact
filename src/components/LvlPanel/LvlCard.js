@@ -1,10 +1,9 @@
 import React,{Component} from 'react'
-
+import './lvlstyle.css'
 class LvlCard extends Component{
     render(){
         return(
-            <div>
-                <div>
+                <div className = "lvlcard">
                     <p>
                         Название уровня: {this.props.title}
                     </p>
@@ -14,7 +13,6 @@ class LvlCard extends Component{
                     <p>
                         Описание:{this.props.description}</p>
                 </div>
-            </div>
         )
     }
 }

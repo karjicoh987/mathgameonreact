@@ -1,0 +1,10 @@
+.Flex-box{
+    display: flex;
+    justify-content: center;
+}
+
+.lvlcard{
+    border:3px solid #0084FF;
+    width:20%;
+    margin:10px;
+}
