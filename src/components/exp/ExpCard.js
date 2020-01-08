@@ -28,9 +28,9 @@ class ExpCard extends Component{
         return (new Function('return ' + this.state.exp))()
     }
     
-    GameChanger(id){
+    GameChanger(num){
         let response = this.CalculateExp()
-        if (this.state.value == response){
+        if (num == response){
             this.setState(prevState =>{
                return {
                     exp:this.GenExp(),

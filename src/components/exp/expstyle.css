@@ -36,10 +36,12 @@ input:hover{
 
 .ButtonVariable{
     background-color: #0084FF;
+    color:white;
     width:15%;
     height:10%;
-    border: 3px solid black;
-    margin: 30px;
+    border: none;
+    border-radius: 3px;
+    margin: 5px;
     font-size: 35px;
     cursor: pointer;
 }
