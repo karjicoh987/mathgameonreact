@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import Header from './components/NavPanel/Header'
 import ExpCard from './components/exp/ExpCard'
+import LvlPanel from './components/LvlPanel/LvlPanel'
 import "./App.css"
 
 class App extends Component{
@@ -29,6 +30,7 @@ class App extends Component{
               onClick = {this.GameStart} />  
         </div>
         }
+        <LvlPanel/>
       </div>
     )
   }
