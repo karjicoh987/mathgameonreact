@@ -8,19 +8,31 @@ class App extends Component{
   constructor(){
     super()
     this.state = {
-      GameOn:false
+      GameOn:false,
+      timer:false
     }
     this.GameStart = this.GameStart.bind(this)
   }
-
+  GameTimerCheck(){
+    setTimeout(() => {
+        this.setState(prevState =>{
+            return{timer: !prevState.timer,
+                   GameOn: !prevState.GameOn}
+            })
+        }, 6000)
+  }
   GameStart(){
-    this.setState({GameOn:true})
+    this.setState(prevState => {
+      return {GameOn:!prevState.GameOn,
+              timer:!prevState.timer}
+    })
+    this.GameTimerCheck()
   }
   render(){
     return(
       <div>
         <Header/>   
-        {this.state.GameOn?
+        {this.state.GameOn && this.state.timer?
           <ExpCard />:
           <div className = "button-container">
            <input 

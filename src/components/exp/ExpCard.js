@@ -15,9 +15,9 @@ class ExpCard extends Component{
         */
         this.state = {
             exp:this.GenExp(),
-            userPoint:0
+            userPoint:0,
         }
-        //Привязка копки к объекту
+        //Привязка кнопки к объекту
         this.GameChanger = this.GameChanger.bind(this);
     }
     GenExp(){
@@ -42,7 +42,9 @@ class ExpCard extends Component{
             alert("You lose")
         }
     }
+    
     render(){
+
         //TrueVariable  перменная необходимая для запоминания индекса правильного варианта
         const TrueVariable = Math.floor(Math.random() * Math.floor(3))
         
