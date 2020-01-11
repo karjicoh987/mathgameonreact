@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import Header from './components/NavPanel/Header'
 import ExpCard from './components/exp/ExpCard'
 import LvlPanel from './components/LvlPanel/LvlPanel'
+import GameCont from './components/NavPanel/Content/GameC'
 import "./App.css"
 
 class App extends Component{
@@ -42,13 +43,7 @@ class App extends Component{
         
         this.state.GameOn && this.state.timer?
           <ExpCard />:
-          <div className = "button-container">
-           <input 
-              className = "button-start" 
-              type = "button" 
-              value = "Начать" 
-              onClick = {this.GameStart} />  
-        </div>
+          <GameCont GameStart = {this.GameStart}/>
         }
         <LvlPanel/>
       </div>
