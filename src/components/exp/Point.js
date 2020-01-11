@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-
+import PropTypes from 'prop-types'
 
 class Point extends Component{
     render(){
@@ -12,4 +12,8 @@ class Point extends Component{
     }
 }
 
+
+Point.propTypes = {
+    point:PropTypes.number.isRequired
+}
 export default Point

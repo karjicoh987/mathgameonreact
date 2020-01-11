@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-
+import PropTypes from 'prop-types'
 
 class Exp extends Component{    
     render(){
@@ -10,4 +10,6 @@ class Exp extends Component{
         )
     }
 }
+
+Exp.propTypes = {GenExp:PropTypes.string}
 export default Exp;

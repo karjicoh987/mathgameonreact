@@ -19,7 +19,7 @@ class App extends Component{
             return{timer: !prevState.timer,
                    GameOn: !prevState.GameOn}
             })
-        }, 6000)
+        }, 60000)
   }
   GameStart(){
     this.setState(prevState => {

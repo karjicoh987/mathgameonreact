@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import PropTypes from 'prop-types'
 import './lvlstyle.css'
 class LvlCard extends Component{
     render(){
@@ -15,6 +16,13 @@ class LvlCard extends Component{
                 </div>
         )
     }
+}
+
+
+LvlCard.propTypes = {
+    title: PropTypes.string,
+    complexity: PropTypes.number,
+    description:PropTypes.string
 }
 
 export default LvlCard
