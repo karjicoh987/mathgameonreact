@@ -4,10 +4,12 @@ import PropTypes from 'prop-types'
 
 class HowGameCont extends Component{
     render(){
-        <div>
+        return(
+        <div className = "flexbox">
             <h1>{this.props.title}</h1>
             <p>{this.props.content}</p>
         </div>
+        )
     }  
 } 
 HowGameCont.propsTypes = {

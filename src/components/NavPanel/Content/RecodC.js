@@ -4,10 +4,9 @@ import PropsTypes from 'prop-types'
 class RecordC extends Component{
     render(){
         return(
-            <div>
+            <div className = "flexbox">
                 <h1>{this.props.title}</h1>
-                <p>{this.props.name}</p>
-                <p>{this.props.record}</p>
+                <p>{this.props.content}</p>
             </div>
         )
     }
@@ -15,8 +14,7 @@ class RecordC extends Component{
 
 RecordC.propTypes = {
     title:PropsTypes.string,
-    name:PropsTypes.string,
-    record:PropsTypes.number.isRequired
+    content:PropsTypes.string
 }
 
 export default RecordC
