@@ -12,3 +12,11 @@ class RecordC extends Component{
         )
     }
 }
+
+RecordC.propTypes = {
+    title:PropsTypes.string,
+    name:PropsTypes.string,
+    record:PropsTypes.number.isRequired
+}
+
+export default RecordC

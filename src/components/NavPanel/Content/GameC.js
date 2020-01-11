@@ -10,3 +10,8 @@ class GameCont extends Component{
         )
     }
 }
+
+GameCont.propTypes = {
+
+}
+export default GameCont
