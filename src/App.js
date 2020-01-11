@@ -13,6 +13,7 @@ class App extends Component{
       timer:false
     }
     this.GameStart = this.GameStart.bind(this)
+    this.contentChange = this.contentChange.bind(this)
   }
   GameTimerCheck(){
     setTimeout(() => {
@@ -22,8 +23,8 @@ class App extends Component{
             })
         }, 60000)
   }
-  NavChange(id){
-    
+  contentChange(id){
+    console.log(id)
   }
   GameStart(){
     this.setState(prevState => {
@@ -37,10 +38,8 @@ class App extends Component{
     return(
       //следующие строки должны быть перписаны под ебанный роутинг реакт, ибо это ппц
       <div>
-        <Header/>   
+        <Header contentChange = {this.contentChange}/>   
         {
-        
-        
         this.state.GameOn && this.state.timer?
           <ExpCard />:
           <GameCont GameStart = {this.GameStart}/>
