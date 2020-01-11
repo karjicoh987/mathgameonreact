@@ -21,6 +21,9 @@ class App extends Component{
             })
         }, 60000)
   }
+  NavChange(id){
+    
+  }
   GameStart(){
     this.setState(prevState => {
       return {GameOn:!prevState.GameOn,
@@ -28,11 +31,16 @@ class App extends Component{
     })
     this.GameTimerCheck()
   }
+
   render(){
     return(
+      //следующие строки должны быть перписаны под ебанный роутинг реакт, ибо это ппц
       <div>
         <Header/>   
-        {this.state.GameOn && this.state.timer?
+        {
+        
+        
+        this.state.GameOn && this.state.timer?
           <ExpCard />:
           <div className = "button-container">
            <input 

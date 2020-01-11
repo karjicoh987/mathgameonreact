@@ -7,12 +7,16 @@ import './NavPanel.css'
 class Header extends Component{
     render(){
         const TextList = NavPanelData.map(
-            (text,i) => <NavText key = {i} text = {text} />
+            (Data,i) => <NavText key = {i} text = {Data.title} />
         )
         return(
             <div className = "Text-body">
                 <div className = "text-content">
-                    <img alt = "Здесь логотип" src = {Logo} height = "64" width = "64"/>
+                    <img    alt = "Здесь логотип" 
+                            src = {Logo} 
+                            height = "64" 
+                            width = "64"
+                    />
                     {TextList}
                    
                 </div>  
