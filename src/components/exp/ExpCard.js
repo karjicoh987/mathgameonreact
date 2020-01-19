@@ -12,10 +12,10 @@ const ExpCard = () => {
     @exp состояние отвечающиее за отрисовку выражения
     @userPoint очки пользователя 
     */
-    const[exp,setExp] = useState(GenExp());
-    const[userPoint,setUserPoint] = useState(0);
-
-    let Brains = [];
+    const[exp, setExp] = useState(GenExp());
+    const[userPoint, setUserPoint] = useState(0);
+    const[Brains, setBrains] = useState(Array())
+    console.log(Brains)
     function GenExp(){
         return Math.floor(Math.random() * Math.floor(100)) + " + " + Math.floor(Math.random() * Math.floor(100));
     }
@@ -51,7 +51,7 @@ const ExpCard = () => {
                                                                     GameChanger = {GameChanger}
                                                          />)
         
-        Brains = Brains.map((stateBrain,i)=>{
+        let BrainsImg = Brains.map((stateBrain,i)=>{
             if(stateBrain){
                 return <img src = {BrainComplete} key = {i} width = "80" height = "80" alt = "Зеленый мозг"/>
             }else{
@@ -69,7 +69,7 @@ const ExpCard = () => {
                     {VariableCards}
                 </div>
                 <div className = "flex-box">
-                    {Brains}
+                    {BrainsImg}
                 </div>
             </div>  
         )
