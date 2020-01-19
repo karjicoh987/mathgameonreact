@@ -1,14 +1,10 @@
 import React,{Component} from 'react'
 import PropTypes from 'prop-types'
-class VariableCard extends Component{
-    render(){
-        return(
-            <button className = "ButtonVariable" onClick = {() => this.props.GameChanger(this.props.num)}>
-                 {this.props.num}
-            </button>
-        )
-    }
-}
+
+const VariableCard = ({ num }) =>
+    <button className = "ButtonVariable" onClick = {() => GameChanger(num)}>
+        {num}
+    </button>
 
 VariableCard.propTypes = {
     GameChanger:PropTypes.func.isRequired,
