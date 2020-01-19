@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React,{ useState } from 'react';
 import Header from './components/NavPanel/Header'
 import HowGameCont from './components/NavPanel/Content/HGameC'
 import RecordCont from './components/NavPanel/Content/RecodC'
@@ -9,84 +9,69 @@ import GameCont from './components/NavPanel/Content/GameC'
 import "./App.css"
 import "./components/NavPanel/Content/Content.css"
 
-class App extends Component{
-  constructor(){
-    super()
-    this.state = {
-      GameOn:false,
-      timer:false,
-      GameCont:false,
-      GameHow:false,
-      GameRecord:false
-    }
-    this.GameStart = this.GameStart.bind(this)
-    this.contentChange = this.contentChange.bind(this)
-  }
-  GameTimerCheck(){
-    setTimeout(() => {
-        this.setState(prevState =>{
-            return{timer: !prevState.timer,
-                   GameOn: !prevState.GameOn}
-            })
-        }, 60000)
-  }
-  //Оптимизировать
-  contentChange(id){
-    this.setState(
-      {
-        GameCont:false,
-        GameHow:false,
-        GameRecord:false
-      }
-    )
-    if (id === 0){
-      this.setState(
-        prevState =>{
-          return{
-            GameHow:!prevState.GameHow}
-        }
-      )
-    }else if (id === 1){
-      this.setState(
-        prevState =>{
-          return{GameCont:!prevState.GameCont}
-        }
-      )
-    }else{
-      this.setState(
-        prevState =>{
-          return{GameRecord:!prevState.GameRecord}
-        }
-      )
-    }
-  }
-  GameStart(){
-    this.setState(prevState => {
-      return {GameOn:!prevState.GameOn,
-              timer:!prevState.timer}
-    })
-    this.GameTimerCheck()
-  }
 
-  render(){
+ /*Состояния
+    @GameOn - начало игры
+    @timer - состояние запуска и остановки таймера
+    @GameCont - отвечает за отоброжение контента раздела с игрой
+    @GameHow - отвечает за отоброжение раздела с правилами
+    @GameRecord - отвечает за отоброжение раздела с рекордами
+   */
+
+  /*Вложенные функции
+  @GameTimerCheck - отсчет времени до конца игры
+  @ContentChange - изменение контента в зависимости от нажатой вкладки в компоненте Header
+  @GameStart - функция начала игры
+  */
+const App = ()=>{
+  const[GameOn, setGameOn] = useState(false);
+  const[timer, setTimer] = useState(false);
+  const[GameContState, setGameContState] = useState(false);
+  const[GameHow,setGameHow] = useState(false);
+  const[GameRecord, setGameRecord] = useState(false);
+
+  const GameTimerCheck = ()=>{
+    setTimeout(() => {
+        setTimer(!timer);
+        setGameOn(!GameOn);
+        }, 
+        60000
+    )
+  };
+  //Оптимизировать
+  const ContentChange = (id)=>{
+    setGameContState(false);
+    setGameHow(false);
+    setGameRecord(false);
+    if (id === 0){
+      setGameHow(!GameHow);
+    } else if (id === 1) {
+      setGameContState(!GameContState);
+    } else {
+      setGameRecord(!GameRecord);
+    }
+  }
+  const GameStart = ()=>{
+    setGameOn(!GameOn);
+    setTimer(!timer);
+    GameTimerCheck();
+  }
     return(
-      //следующие строки должны быть перписаны под ебанный роутинг реакт, ибо это ппц
       <div>
-        <Header contentChange = {this.contentChange}/>   
+        <Header contentChange = {ContentChange}/>   
         {
-          (this.state.GameHow)?
+          (GameHow)?
           <HowGameCont {...NavPanelData[0]}/>:
-          (this.state.GameCont)?
-              this.state.GameOn && this.state.timer?
+          (GameContState)?
+              GameOn && timer?
               <ExpCard />:
-              <GameCont GameStart = {this.GameStart}/>:
-          (this.state.GameRecord)?
+              <GameCont GameStart = {GameStart}/>:
+          (GameRecord)?
           <RecordCont {...NavPanelData[2]}/>:
           <LvlPanel/>
         }
       </div>
     )
-  }
 }
 
 
