@@ -7,13 +7,23 @@ import BrainLose from './brainLose.png'
 import './expstyle.css';
 
 const ExpCard = () => {
-    const GenExp = () =>
-        Math.floor(Math.random() * Math.floor(100)) + " + " + Math.floor(Math.random() * Math.floor(100));
-
-    const CalculateExp = () =>
-        new Function('return ' + exp)();
-
-    const GameChanger = (num) =>{
+    /* 
+    Состояния
+    @exp состояние отвечающиее за отрисовку выражения
+    @userPoint очки пользователя 
+    */
+    const[exp, setExp] = useState(GenExp());
+    const[userPoint, setUserPoint] = useState(0);
+    const[Brains, setBrains] = useState(Array())
+    console.log(Brains)
+    function GenExp(){
+        return Math.floor(Math.random() * Math.floor(100)) + " + " + Math.floor(Math.random() * Math.floor(100));
+    }
+       
+    function CalculateExp(){
+        return new Function('return ' + exp)();
+    }
+    function GameChanger(num){
         let response = CalculateExp()
         if (num === response){
             setExp(GenExp());
@@ -24,15 +34,6 @@ const ExpCard = () => {
             Brains.push(false)
         }
     }
-        /* 
-        Состояния
-        @exp состояние отвечающиее за отрисовку выражения
-        @userPoint очки пользователя 
-        */
-       const[exp,setExp] = useState(GenExp());
-       const[userPoint,setUserPoint] = useState(0);
-
-        let Brains = [];
         //TrueVariable  перменная необходимая для запоминания индекса правильного варианта
         const TrueVariable = Math.floor(Math.random() * Math.floor(3))
         // Генерирование массива с вариантами ответа
@@ -50,7 +51,7 @@ const ExpCard = () => {
                                                                     GameChanger = {GameChanger}
                                                          />)
         
-        Brains = Brains.map((stateBrain,i)=>{
+        let BrainsImg = Brains.map((stateBrain,i)=>{
             if(stateBrain){
                 return <img src = {BrainComplete} key = {i} width = "80" height = "80" alt = "Зеленый мозг"/>
             }else{
@@ -68,7 +69,7 @@ const ExpCard = () => {
                     {VariableCards}
                 </div>
                 <div className = "flex-box">
-                    {Brains}
+                    {BrainsImg}
                 </div>
             </div>  
         )

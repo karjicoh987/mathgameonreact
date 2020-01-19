@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const VariableCard = ({ num }) =>
+const VariableCard = ({ num, GameChanger }) =>
     <button className = "ButtonVariable" onClick = {() => GameChanger(num)}>
         {num}
     </button>
