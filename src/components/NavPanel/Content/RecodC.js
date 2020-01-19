@@ -1,16 +1,11 @@
-import React,{Component} from 'react'
+import React from 'react'
 import PropsTypes from 'prop-types'
 
-class RecordC extends Component{
-    render(){
-        return(
+const RecordC = ({ title, content }) =>
             <div className = "flexbox">
-                <h1>{this.props.title}</h1>
-                <p>{this.props.content}</p>
+                <h1>{ title }</h1>
+                <p>{ content }</p>
             </div>
-        )
-    }
-}
 
 RecordC.propTypes = {
     title:PropsTypes.string,

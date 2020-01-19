@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React from 'react'
 import LvlData from './LvlData'
 import LvlCard from './LvlCard'
 import './lvlstyle.css'
