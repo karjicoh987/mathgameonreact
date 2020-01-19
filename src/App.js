@@ -23,14 +23,8 @@ import "./components/NavPanel/Content/Content.css"
   @ContentChange - изменение контента в зависимости от нажатой вкладки в компоненте Header
   @GameStart - функция начала игры
   */
-const App = ()=>{
-  const[GameOn, setGameOn] = useState(false);
-  const[timer, setTimer] = useState(false);
-  const[GameContState, setGameContState] = useState(false);
-  const[GameHow,setGameHow] = useState(false);
-  const[GameRecord, setGameRecord] = useState(false);
-
-  const GameTimerCheck = ()=>{
+const App = () => {
+  const GameTimerCheck = () => {
     setTimeout(() => {
         setTimer(!timer);
         setGameOn(!GameOn);
@@ -39,7 +33,7 @@ const App = ()=>{
     )
   };
   //Оптимизировать
-  const ContentChange = (id)=>{
+  const ContentChange = (id) => {
     setGameContState(false);
     setGameHow(false);
     setGameRecord(false);
@@ -51,23 +45,31 @@ const App = ()=>{
       setGameRecord(!GameRecord);
     }
   }
-  const GameStart = ()=>{
+  const GameStart = () => {
     setGameOn(!GameOn);
     setTimer(!timer);
     GameTimerCheck();
   }
+
+    //Состояния
+    const[GameOn, setGameOn] = useState(false);
+    const[timer, setTimer] = useState(false);
+    const[GameContState, setGameContState] = useState(false);
+    const[GameHow,setGameHow] = useState(false);
+    const[GameRecord, setGameRecord] = useState(false);
+
     return(
       <div>
-        <Header contentChange = {ContentChange}/>   
+        <Header contentChange = { ContentChange }/>   
         {
           (GameHow)?
-          <HowGameCont {...NavPanelData[0]}/>:
+          <HowGameCont { ...NavPanelData[0] }/>:
           (GameContState)?
               GameOn && timer?
               <ExpCard />:
-              <GameCont GameStart = {GameStart}/>:
+              <GameCont GameStart = { GameStart }/>:
           (GameRecord)?
-          <RecordCont {...NavPanelData[2]}/>:
+          <RecordCont { ...NavPanelData[2] }/>:
           <LvlPanel/>
         }
       </div>
