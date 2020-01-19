@@ -7,13 +7,23 @@ import BrainLose from './brainLose.png'
 import './expstyle.css';
 
 const ExpCard = () => {
-    const GenExp = () =>
-        Math.floor(Math.random() * Math.floor(100)) + " + " + Math.floor(Math.random() * Math.floor(100));
+    /* 
+    Состояния
+    @exp состояние отвечающиее за отрисовку выражения
+    @userPoint очки пользователя 
+    */
+    const[exp,setExp] = useState(GenExp());
+    const[userPoint,setUserPoint] = useState(0);
 
-    const CalculateExp = () =>
-        new Function('return ' + exp)();
-
-    const GameChanger = (num) =>{
+    let Brains = [];
+    function GenExp(){
+        return Math.floor(Math.random() * Math.floor(100)) + " + " + Math.floor(Math.random() * Math.floor(100));
+    }
+       
+    function CalculateExp(){
+        return new Function('return ' + exp)();
+    }
+    function GameChanger(num){
         let response = CalculateExp()
         if (num === response){
             setExp(GenExp());
@@ -24,15 +34,6 @@ const ExpCard = () => {
             Brains.push(false)
         }
     }
-        /* 
-        Состояния
-        @exp состояние отвечающиее за отрисовку выражения
-        @userPoint очки пользователя 
-        */
-       const[exp,setExp] = useState(GenExp());
-       const[userPoint,setUserPoint] = useState(0);
-
-        let Brains = [];
         //TrueVariable  перменная необходимая для запоминания индекса правильного варианта
         const TrueVariable = Math.floor(Math.random() * Math.floor(3))
         // Генерирование массива с вариантами ответа

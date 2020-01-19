@@ -24,7 +24,13 @@ import "./components/NavPanel/Content/Content.css"
   @GameStart - функция начала игры
   */
 const App = () => {
-  const GameTimerCheck = () => {
+  const[GameOn, setGameOn] = useState(false);
+  const[timer, setTimer] = useState(false);
+  const[GameContState, setGameContState] = useState(false);
+  const[GameHow,setGameHow] = useState(false);
+  const[GameRecord, setGameRecord] = useState(false);
+
+  function GameTimerCheck(){
     setTimeout(() => {
         setTimer(!timer);
         setGameOn(!GameOn);
@@ -33,7 +39,7 @@ const App = () => {
     )
   };
   //Оптимизировать
-  const ContentChange = (id) => {
+  function ContentChange(id){
     setGameContState(false);
     setGameHow(false);
     setGameRecord(false);
@@ -45,18 +51,11 @@ const App = () => {
       setGameRecord(!GameRecord);
     }
   }
-  const GameStart = () => {
+  function GameStart(){
     setGameOn(!GameOn);
     setTimer(!timer);
     GameTimerCheck();
   }
-
-    //Состояния
-    const[GameOn, setGameOn] = useState(false);
-    const[timer, setTimer] = useState(false);
-    const[GameContState, setGameContState] = useState(false);
-    const[GameHow,setGameHow] = useState(false);
-    const[GameRecord, setGameRecord] = useState(false);
 
     return(
       <div>
