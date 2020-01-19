@@ -14,8 +14,7 @@ const ExpCard = () => {
     */
     const[exp, setExp] = useState(GenExp());
     const[userPoint, setUserPoint] = useState(0);
-    const[Brains, setBrains] = useState(Array())
-    console.log(Brains)
+    const[Brains] = useState(Array())
     function GenExp(){
         return Math.floor(Math.random() * Math.floor(100)) + " + " + Math.floor(Math.random() * Math.floor(100));
     }
