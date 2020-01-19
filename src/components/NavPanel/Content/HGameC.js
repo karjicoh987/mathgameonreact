@@ -1,17 +1,12 @@
-import React,{Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
-
-class HowGameCont extends Component{
-    render(){
-        return(
+const HowGameCont = ({ title, content }) =>
         <div className = "flexbox">
-            <h1>{this.props.title}</h1>
-            <p>{this.props.content}</p>
+            <h1>{ title }</h1>
+            <p>{ content }</p>
         </div>
-        )
-    }  
-} 
+        
 HowGameCont.propsTypes = {
     title:PropTypes.string,
     content:PropTypes.string

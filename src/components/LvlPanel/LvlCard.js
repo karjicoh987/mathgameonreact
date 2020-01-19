@@ -1,22 +1,19 @@
-import React,{Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import './lvlstyle.css'
-class LvlCard extends Component{
-    render(){
-        return(
-                <div className = "lvlcard">
-                    <p>
-                        Название уровня: {this.props.title}
-                    </p>
-                    <p>
-                       Сложность: {this.props.complexity}
-                    </p>
-                    <p>
-                        Описание:{this.props.description}</p>
-                </div>
-        )
-    }
-}
+
+const LvlCard = ({ title, complexity, description }) =>
+    <div className = "lvlcard">
+        <p>
+            Название уровня: { title }
+        </p>
+        <p>
+            Сложность: { complexity }
+        </p>
+        <p>
+            Описание:{ description }</p>
+    </div>
+ 
 
 
 LvlCard.propTypes = {
