@@ -2,16 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types'
 
 
-const NavText = ({ text, id, contentChange }) =>
+const NavText = ({ text }) =>
             <span   
-                className = "text"
-                onClick = { ()=>contentChange(id) }>
+                className = "text">
                 { text }
             </span>
 
 NavText.propTypes = {
     text: PropTypes.string,
-    contentChange:PropTypes.func
-}
+};
 
 export default NavText;

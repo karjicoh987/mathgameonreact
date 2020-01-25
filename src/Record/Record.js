@@ -10,6 +10,6 @@ const RecordC = ({ title, content }) =>
 RecordC.propTypes = {
     title:PropsTypes.string,
     content:PropsTypes.string
-}
+};
 
 export default RecordC
