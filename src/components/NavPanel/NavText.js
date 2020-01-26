@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 
 
 const NavText = ({ text }) =>
-            <span   
-                className = "text">
+            <span>
                 { text }
             </span>
 

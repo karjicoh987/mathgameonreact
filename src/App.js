@@ -1,10 +1,10 @@
 import React,{ useState } from 'react';
 import Header from './components/NavPanel/Header'
-import Rule from './Rule/Rule'
-import RecordC from './Record/Record'
-import Game from './Pages/Game'
+import Rule from './components/Rule/Rule'
+import RecordC from './components/Record/Record'
+import Game from './components/Game/Game'
 import "./App.css"
-import "./Pages/Content.css"
+import "./components/Game/Content.css"
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,6 +13,7 @@ import {
 
 const App = () => {
     return(
+      <div>
         <Router>
           <Header/>
           <Switch>
@@ -22,6 +23,7 @@ const App = () => {
             <Route path = '/record' component = {RecordC}/>
           </Switch>
         </Router>
+      </div>
 
     )
 };
