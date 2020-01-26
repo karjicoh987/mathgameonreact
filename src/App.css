@@ -3,6 +3,38 @@ body{
     background: #5577A9;
     font-family: 'Source Sans Pro', sans-serif;
 }
+
+.Home{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top:5%;    
+}
+
+.Search{
+    text-align: center;
+}
+
+input{
+    font-size: 25px;
+    color:#ffffff;
+    width: 25%;
+    padding-left: 40px;
+    background-color: #5577A9;
+    background: url('./img/search.png') no-repeat 3px 1px;
+    background-size: auto 90%;
+    border: none;
+    border-radius: 6px;
+    border-bottom:6px solid #ffffffd5 ;
+}
+
+input:focus{
+    border-color: #ffffff;
+}
+
+input:hover{
+    border-color: #ffffff;
+}
+
 .Nav-Link{
     width:50%;
     display: flex;

@@ -2,7 +2,6 @@ import React from 'react';
 import NavText from './NavText';
 import NavPanelData from '../Data/NalPanelData'
 import Logo from './../../img/logo.png'
-import Auth from './../../img/user.png'
 import {Link} from 'react-router-dom'
 
 const Header = () => {

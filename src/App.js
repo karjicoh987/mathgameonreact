@@ -3,6 +3,7 @@ import Header from './components/NavPanel/Header'
 import Rule from './components/Rule/Rule'
 import RecordC from './components/Record/Record'
 import Game from './components/Game/Game'
+import Home from './components/HomePage/HomePage'
 import "./App.css"
 import "./components/Game/Content.css"
 import {
@@ -17,7 +18,7 @@ const App = () => {
         <Router>
           <Header/>
           <Switch>
-            <Route path = '/' exact component = {Rule}/>
+            <Route path = '/' exact component = {Home}/>
             <Route path = '/game' component = {Game}/>
             <Route path = '/rule' component = {Rule}/>
             <Route path = '/record' component = {RecordC}/>
