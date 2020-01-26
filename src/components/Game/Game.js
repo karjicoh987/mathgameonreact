@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import StartButton from './StartButton'
-import ExpCard from "../components/exp/ExpCard";
+import ExpCard from "../exp/ExpCard";
 
 /*Состояния
     @GameOn - начало игры

@@ -1,3 +1,82 @@
+body{
+    margin:0;
+    background: #5577A9;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.Home{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top:5%;    
+}
+
+.Search{
+    text-align: center;
+}
+
+input{
+    font-size: 25px;
+    color:#ffffff;
+    width: 25%;
+    padding-left: 40px;
+    background-color: #5577A9;
+    background: url('./img/search.png') no-repeat 3px 1px;
+    background-size: auto 90%;
+    border: none;
+    border-radius: 6px;
+    border-bottom:6px solid #ffffffd5 ;
+}
+
+input:focus{
+    border-color: #ffffff;
+}
+
+input:hover{
+    border-color: #ffffff;
+}
+
+.Nav-Link{
+    width:50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+.Link-Button{
+    color:#ffffffd5;
+    font-size: 24px;
+    text-decoration: none;
+    width:154px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: #ffffffd5 solid;
+    border-radius: 2px;
+}
+
+.Link-Button:hover{
+    border-color:#ffffff;
+    color:#ffffff;
+    
+}
+.Header{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 125px;
+    background: linear-gradient(90deg,
+                                rgba(100, 97, 228, 59),
+                                rgba(66, 160, 228, 70),
+                                rgba(131, 191, 244, 52),
+                                rgba(108, 71, 154, 25)
+     );
+    color:white;
+}
+
+
+/* Кнопка начала игры */
 .button-start{
     height: 100px;
     width:400px;
