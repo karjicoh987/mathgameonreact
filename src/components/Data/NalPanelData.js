@@ -1,6 +1,6 @@
 const NavPanelData = [
     {
-        title:'Правила',
+        title:'Как играть?',
         path:'rule',
         content: 'Нажмите на кнопку начать игру, а дальше выбирайте варианты ответа в соответствии с заданным выражением пока не закончится время'
     },
@@ -12,6 +12,9 @@ const NavPanelData = [
         title:'Рекорды',
         path:'record',
         content:'Dima:32, Vanya:44',
+    },
+    {
+        title:'Вход'
     }
 ]
 
