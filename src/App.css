@@ -3,7 +3,7 @@ body{
     background: #5577A9;
     font-family: 'Source Sans Pro', sans-serif;
 }
-
+/* Домашняя страницы */
 .Home{
     margin-left: 10%;
     margin-right: 10%;
@@ -14,7 +14,7 @@ body{
     text-align: center;
 }
 
-input{
+.input-text{
     font-size: 25px;
     color:#ffffff;
     width: 25%;
@@ -27,14 +27,30 @@ input{
     border-bottom:6px solid #ffffffd5 ;
 }
 
-input:focus{
+.input-text:focus{
     border-color: #ffffff;
 }
 
-input:hover{
+.input-text:hover{
     border-color: #ffffff;
 }
+/* Карточки уровней */
+.Lvl-box{
+    display: flex;
+    justify-content: space-around;
+}
 
+.lvlcard{
+    width:290px;
+    height: 200px;
+    border:3px solid rgb(255, 255, 255);
+    border-radius: 45px;
+    padding-left:30px;
+    padding-right: 30px;
+    margin-top:120px;
+}
+
+/* Панель навигации */
 .Nav-Link{
     width:50%;
     display: flex;

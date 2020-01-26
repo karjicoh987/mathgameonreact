@@ -16,12 +16,22 @@ const ExpCard = () => {
     const[userPoint, setUserPoint] = useState(0);
     const[Brains] = useState(Array())
     function GenExp(){
-        return Math.floor(Math.random() * Math.floor(100)) + " + " + Math.floor(Math.random() * Math.floor(100));
+        const signs = [
+            "*",
+            "-",
+            "+",
+        ]
+        const sign = signs[Math.floor(Math.random() * signs.length)]
+        return Math.floor(Math.random() * Math.floor(100)) + " " + sign + " " + Math.floor(Math.random() * Math.floor(100));
     }
        
+    //Расчет выражения
     function CalculateExp(){
+
         return new Function('return ' + exp)();
     }
+
+    //Проверка правильности выражения
     function GameChanger(num){
         let response = CalculateExp()
         if (num === response){
@@ -48,8 +58,9 @@ const ExpCard = () => {
                                                                     num = {num} 
                                                                     key = {i} 
                                                                     GameChanger = {GameChanger}
-                                                         />)
+                                                         />);
         
+        //Генерация массива с изображениями правильных и не правильных ответов
         let BrainsImg = Brains.map((stateBrain,i)=>{
             if(stateBrain){
                 return <img src = {BrainComplete} key = {i} width = "80" height = "80" alt = "Зеленый мозг"/>
