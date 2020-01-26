@@ -1,15 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './lvlstyle.css'
+
 
 const LvlCard = ({ title, complexity, description }) =>
     <div className = "lvlcard">
-        <p>
+        <h2>
             Название уровня: { title }
-        </p>
-        <p>
-            Сложность: { complexity }
-        </p>
+        </h2>
         <p>
             Описание:{ description }</p>
     </div>
@@ -18,7 +15,6 @@ const LvlCard = ({ title, complexity, description }) =>
 
 LvlCard.propTypes = {
     title: PropTypes.string,
-    complexity: PropTypes.number,
     description:PropTypes.string
 }
 
