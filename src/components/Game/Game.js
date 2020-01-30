@@ -15,19 +15,16 @@ import ExpCard from "../exp/ExpCard";
 const Game = () => {
     const[GameOn, setGameOn] = useState(false);
     const[timer, setTimer] = useState(false);
-    function GameTimerCheck(){
-        setTimeout(() => {
-                setTimer(!timer);
-                setGameOn(!GameOn);
-            },
-            60000
-        )
-    }
+    setTimeout(() => {
+            setTimer(!timer);
+            setGameOn(!GameOn);
+        },
+        60000
+    )
 
     function GameStart(){
         setGameOn(!GameOn);
         setTimer(!timer);
-        GameTimerCheck();
     }
     return(
         <div>

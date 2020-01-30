@@ -1,7 +1,6 @@
 body{
     margin:0;
-    background: #5577A9;
-    font-family: 'Source Sans Pro', sans-serif;
+    background: rgb(95, 138, 255);
 }
 
 .Lvl-box{
@@ -13,8 +12,8 @@ body{
     width:290px;
     height: 200px;
     color:white;
-    border:6px solid rgb(255, 255, 255);
-    border-radius: 45px;
+    border-left:6px solid rgb(255, 255, 255);
+    border-radius: 2px;
     padding-left:30px;
     padding-right: 30px;
     margin-top:100px;
@@ -47,7 +46,7 @@ body{
     border-color: #ffffff;
 }
 
-.nput-text:hover{
+.input-text:hover{
     border-color: #ffffff;
 }
 
@@ -69,7 +68,7 @@ body{
     justify-content: center;
     align-items: center;
     border: #ffffffd5 solid;
-    border-radius: 2px;
+    border-radius: 45px;
 }
 
 .Link-Button:hover{
@@ -82,12 +81,6 @@ body{
     justify-content: space-around;
     align-items: center;
     min-height: 125px;
-    background: linear-gradient(90deg,
-                                rgba(100, 97, 228, 59),
-                                rgba(66, 160, 228, 70),
-                                rgba(131, 191, 244, 52),
-                                rgba(108, 71, 154, 25)
-     );
     color:white;
 }
 
