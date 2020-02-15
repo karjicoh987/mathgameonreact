@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import StartButton from './StartButton'
 import ExpCard from "../exp/ExpCard";
-
+import Header from "../NavPanel/Header"
 /*Состояния
     @GameOn - начало игры
     @timer - состояние запуска и остановки таймера
