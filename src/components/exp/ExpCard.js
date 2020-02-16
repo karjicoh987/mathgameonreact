@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import Exp from './Exp';
-import Point from './Point';
-import VariableCard from './VariableCard'
-import BrainComplete from './brainComplete.png'
-import BrainLose from './brainLose.png'
+import AreaQuest from '../AreaQuest/AreaQuest';
+import Point from '../Point/Point';
+import VariableCard from '../VariableCard/VariableCard'
+import BrainComplete from '../../img/brainComplete.png'
+import BrainLose from '../../img/brainLose.png'
 import './expstyle.css';
 
 const ExpCard = () => {
@@ -15,6 +15,7 @@ const ExpCard = () => {
     const[exp, setExp] = useState(GenExp());
     const[userPoint, setUserPoint] = useState(0);
     const[Brains] = useState(Array());
+    
     function GenExp(){
         const signs = [
             "+",
@@ -30,7 +31,7 @@ const ExpCard = () => {
     }
     function GameChanger(num){
         let response = CalculateExp()
-        if (num === response){
+        if (num == response){
             setExp(GenExp());
             setUserPoint(userPoint + 1);
             Brains.push(true)
@@ -51,7 +52,7 @@ const ExpCard = () => {
 
         // Генерирование массива с компонентом VariableCard
         const VariableCards = VarNumArr.map((num,i) => <VariableCard 
-                                                                    num = {num} 
+                                                                    text = {num} 
                                                                     key = {i} 
                                                                     GameChanger = {GameChanger}
                                                          />)
@@ -67,7 +68,7 @@ const ExpCard = () => {
         return(
             <div>
                 <div className = "Exp-card">
-                    <Exp GenExp = {exp}/>
+                    <AreaQuest QuestText = {exp}/>
                     <Point point = {userPoint}/>
                 </div>
                 <div className = "flex-box">

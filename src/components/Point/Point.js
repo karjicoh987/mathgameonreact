@@ -5,6 +5,6 @@ const Point = ({ point }) =>
     <h3>{ point }</h3>
 
 Point.propTypes = {
-    point:PropTypes.number.isRequired
+    point:PropTypes.number
 }
 export default Point

@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import VariableCard from '../exp/VariableCard';
 
-function WordCard({ str }){
-    const[word,setWord] = useState(str)]
+const WordCard = ({ str }) =>{
+    const[word, setWord] = useState(str)
     const[userPoint, setUserPoint] = useState(0);
     
     function GenWordRandomChoice(str){
@@ -19,19 +19,22 @@ function WordCard({ str }){
     
     }
     
-    function GenVariableWord(s, i = 0, massWord = []){
-        let GenWord = null;
-        if (i === 3){
-            return massWord.join(' ');
+    function GenVariableWord(s){
+        function iter(counter = 0, massWord = []){
+            let GenWord = null;
+            if (counter === 3){
+                return massWord.join(' ');
+            }
+            GenWord = GenWordRandomChoice(s);
+            if (massWord.indexOf(GenWord) === -1 && GenWord !== s){
+                massWord.push(GenWord);
+            }
+            else{
+                return iter(counter + 1, massWord);
+            }
+            return iter(counter + 1, massWord);
         }
-        GenWord = GenWordRandomChoice(s);
-        if (massWord.indexOf(GenWord) === -1 && GenWord !== s){
-            massWord.push(GenWord);
-        }
-        else{
-            return GenVariableWord(s,i, massWord);
-        }
-        return GenVariableWord(s,i + 1, massWord);
+        return iter()
     }
 
     return(
