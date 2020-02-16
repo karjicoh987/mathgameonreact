@@ -1,4 +1,7 @@
 const NavPanelData = [
+    {title:"Главная",
+     path:"/"
+    },
     {
         title:'Как играть?',
         path:'rule',
