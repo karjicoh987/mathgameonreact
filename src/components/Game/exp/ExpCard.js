@@ -14,7 +14,7 @@ const ExpCard = () => {
     */
     const[exp, setExp] = useState(GenExp());
     const[userPoint, setUserPoint] = useState(0);
-    const[Brains] = useState(Array());
+    const[Brains] = useState(new Array());
     
     function GenExp(){
         const signs = [
