@@ -4,6 +4,8 @@ import Point from '../Point/Point';
 import VariableCard from '../VariableCard/VariableCard'
 import BrainComplete from '../../../img/brainComplete.png'
 import BrainLose from '../../../img/brainLose.png'
+import VarArr from '../GameMethod'
+import {GenExp, CalculateExp, FalseCalculateExp} from './ExpMethod'
 import './expstyle.css';
 
 const ExpCard = () => {
@@ -16,22 +18,9 @@ const ExpCard = () => {
     const[userPoint, setUserPoint] = useState(0);
     const[Brains] = useState(new Array());
     
-    function GenExp(){
-        const signs = [
-            "+",
-            "-",
-            "*"
-        ];
-        const sign = signs[Math.floor(Math.random() * signs.length)];
-        return Math.floor(Math.random() * Math.floor(100)) + ' ' + sign + ' ' + Math.floor(Math.random() * Math.floor(100));
-    }
-       
-    function CalculateExp(){
-        return new Function('return ' + exp)();
-    }
     function GameChanger(num){
-        let response = CalculateExp()
-        if (num == response){
+        let response = CalculateExp(exp)
+        if (num === response){
             setExp(GenExp());
             setUserPoint(userPoint + 1);
             Brains.push(true)
@@ -40,16 +29,8 @@ const ExpCard = () => {
             Brains.push(false)
         }
     }
-        //TrueVariable  перменная необходимая для запоминания индекса правильного варианта
-        const TrueVariable = Math.floor(Math.random() * Math.floor(3))
-        // Генерирование массива с вариантами ответа
-        const VarNumArr = new Array(3).fill(0).map( (n,i) =>{
-            if (i === TrueVariable){
-                return CalculateExp()
-            }
-            return (CalculateExp() + Math.floor(Math.random() * Math.floor(10) + 1))
-        })
 
+        const VarNumArr = VarArr(FalseCalculateExp, CalculateExp,exp)
         // Генерирование массива с компонентом VariableCard
         const VariableCards = VarNumArr.map((num,i) => <VariableCard 
                                                                     text = {num} 
