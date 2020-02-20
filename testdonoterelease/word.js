@@ -762,7 +762,16 @@ var arrWord = [
     "шпага",
     "шарага"
 ];
-function GenWordRandomChoice(str){
+
+let Albhabet =[
+    'а', 'б', 'в', 'г', 'д', 'е',
+    'ё', 'ж', 'з', 'и', 'й', 'к',
+    'л', 'м', 'н', 'о', 'п', 'р',
+    'с', 'т', 'у', 'ф', 'х', 'ц',
+    'ч', 'ш', 'щ', 'ъ', 'ы', 'ь',
+    'э', 'ю', 'я'
+  ]
+function RandomChoice(str){
     const ArrStr = str.split("");
     let ArrW = [];
     let ArrInd = null;
@@ -776,25 +785,31 @@ function GenWordRandomChoice(str){
 
 }
 
-function GenVariableWord(s){
-    function iter(counter = 0,massWord = []){
-        let GenWord = null;
-        if (counter === 3){
-            return massWord.join(' ');
-        }
-        GenWord = GenWordRandomChoice(s);
-        if (massWord.indexOf(GenWord) === -1 && GenWord !== s){
-            massWord.push(GenWord);
-        }
-        else{
-            return iter(counter + 1, massWord);
-        }
-        return iter(counter + 1, massWord);
+function ReplaceWord(str){
+    let ArrStr = str.split("")
+    let wordInd = ""
+    for(let i = 0; i<Math.floor(Math.random() * (1) + 1); i++){
+        wordInd = Albhabet[Math.floor(Math.random() * Albhabet.length)]
+        ArrStr[Math.floor(Math.random() * ArrStr.length)] = wordInd
     }
-    return iter()
+    return ArrStr.join('');
 }
 
-for (let i = 0; arrWord.length > i; i++){
-    console.log(GenVariableWord(arrWord[i]));
+function GenVariable(s){
+        let FalseWord = null;
+        let TrueWord = RandomChoice(s);
+        let massWord = [];
+        massWord.push(TrueWord);
+
+        for (let i = 0; 3 > i; i++){
+            FalseWord = RandomChoice(ReplaceWord(s));
+            massWord.push(FalseWord);
+        }
+        return massWord.join(" ")
 }
+for (let i = 0; 3>i;i++){
+    console.log(GenVariable("дима"));
+
+}
+
 

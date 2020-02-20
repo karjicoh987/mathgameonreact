@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import AreaQuest from '../AreaQuest/AreaQuest';
 import Point from '../Point/Point';
 import VariableCard from '../VariableCard/VariableCard'
-import BrainComplete from '../../img/brainComplete.png'
-import BrainLose from '../../img/brainLose.png'
+import BrainComplete from '../../../img/brainComplete.png'
+import BrainLose from '../../../img/brainLose.png'
 import './expstyle.css';
 
 const ExpCard = () => {
