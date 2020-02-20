@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import VariableCard from '../VariableCard/VariableCard';
 import {arrWord} from './WordData';
-import {GenVariable} from './MethodWord';
+import GenVariable from './MethodWord';
 
 
 
