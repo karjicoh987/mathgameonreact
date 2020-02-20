@@ -1,41 +1,15 @@
 import React, {useState} from 'react';
-import VariableCard from '../exp/VariableCard';
-import data from './WordData'
+import VariableCard from '../VariableCard/VariableCard';
+import {arrWord} from './WordData';
+import {GenVariable} from './MethodWord';
+
+
+
 const WordCard = () =>{
     // const[word, setWord] = useState(str)
     // const[userPoint, setUserPoint] = useState(0);
     
-    function GenWordRandomChoice(str){
-        const ArrStr = str.split("");
-        let ArrW = [];
-        let ArrInd = null;
-        for (let i = 0; i < str.length; i++){
-            ArrInd = Math.floor(Math.random() * (ArrStr.length));
-            ArrW[i] = ArrStr[ArrInd];
-            ArrStr.splice(ArrInd, 1);
-        }
-        
-        return ArrW.join("");
     
-    }
-    
-    function GenVariableWord(s){
-        function iter(counter = 0, massWord = []){
-            let GenWord = null;
-            if (counter === 3){
-                return massWord.join(' ');
-            }
-            GenWord = GenWordRandomChoice(s);
-            if (massWord.indexOf(GenWord) === -1 && GenWord !== s){
-                massWord.push(GenWord);
-            }
-            else{
-                return iter(counter + 1, massWord);
-            }
-            return iter(counter + 1, massWord);
-        }
-        return iter()
-    }
 
     function GameChanger(value){
         let response = random_word;
@@ -49,13 +23,13 @@ const WordCard = () =>{
         }
     }
     
-    const TrueVariable = Math.floor(Math.random() * Math.floor(3));
-    const random_word = data[Math.random() * Math.floor(data.length)];
-    const VarWordArr = new Array(3).fill(0).map( (n,i) =>{
+    const TrueVariable = Math.floor(Math.random() * Math.floor(4));
+    const random_word = arrWord[Math.random() * Math.floor(arrWord.length)];
+    const VarWordArr = new Array(4).fill(0).map( (n,i) =>{
         if (i === TrueVariable){
             return (random_word );
         }
-        return (GenVariableWord(random_word ));
+        return (GenVariable(random_word));
     });
     const VariableCards = VarWordArr.map((num,i) => <VariableCard 
                                                                 text = {num} 
@@ -64,7 +38,7 @@ const WordCard = () =>{
                                                             />)
     return(
         <div>
-            {VariableCard}
+            {VariableCards}
         </div>
     )
 }

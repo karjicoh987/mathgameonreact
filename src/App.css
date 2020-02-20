@@ -76,6 +76,7 @@ body{
     color:#ffffff;
     
 }
+
 .Header{
     display:flex;
     justify-content: space-around;
@@ -83,7 +84,6 @@ body{
     min-height: 125px;
     color:white;
 }
-
 
 /* Кнопка начала игры */
 .button-start{
@@ -105,4 +105,12 @@ body{
     margin-top:200px;
     display: flex;
     justify-content: center;
+}
+
+
+@media only screen and (max-width:1024px){
+    .Header{
+        width:100%;
+        min-height: 125px;
+    }
 }
