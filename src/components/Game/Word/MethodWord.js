@@ -1,5 +1,8 @@
 import {Albhabet} from './WordData'
 
+function RandomWord(arrWord){
+    return arrWord[Math.random() * Math.floor(arrWord.length)];
+}
 function RandomChoice(str){
     const ArrStr = str.split("");
     let ArrW = [];
@@ -15,7 +18,7 @@ function RandomChoice(str){
 }
 
 function ReplaceWord(str){
-    let ArrStr = str.split("");
+    let ArrStr = RandomChoice(str).split("");
     let wordInd = "";
     for(let i = 0; i<Math.floor(Math.random() * (1) + 1); i++){
         wordInd = Albhabet[Math.floor(Math.random() * Albhabet.length)];
@@ -24,16 +27,4 @@ function ReplaceWord(str){
     return ArrStr.join('');
 }
 
-function GenVariable(s){
-        let FalseWord = null;
-        let TrueWord = RandomChoice(s);
-        let massWord = [];
-        massWord.push(TrueWord);
-        for (let i = 0; 3 > i; i++){
-            FalseWord = RandomChoice(ReplaceWord(s));
-            massWord.push(FalseWord);
-        }
-        return massWord.join(" ");
-}
-
-export default GenVariable;
+export {ReplaceWord, RandomWord};

@@ -5,7 +5,7 @@ import VariableCard from '../VariableCard/VariableCard'
 import BrainComplete from '../../../img/brainComplete.png'
 import BrainLose from '../../../img/brainLose.png'
 import VarArr from '../GameMethod'
-import {GenExp, CalculateExp, FalseCalculateExp} from './ExpMethod'
+import {GenExp, FalseCalculateExp} from './ExpMethod'
 import './expstyle.css';
 
 const ExpCard = () => {
@@ -19,7 +19,7 @@ const ExpCard = () => {
     const[Brains] = useState(new Array());
     
     function GameChanger(num){
-        let response = CalculateExp(exp)
+        let response = eval(exp)
         if (num === response){
             setExp(GenExp());
             setUserPoint(userPoint + 1);
@@ -30,7 +30,7 @@ const ExpCard = () => {
         }
     }
 
-        const VarNumArr = VarArr(FalseCalculateExp, CalculateExp,exp)
+        const VarNumArr = VarArr(FalseCalculateExp,exp)
         // Генерирование массива с компонентом VariableCard
         const VariableCards = VarNumArr.map((num,i) => <VariableCard 
                                                                     text = {num} 
@@ -41,9 +41,8 @@ const ExpCard = () => {
         let BrainsImg = Brains.map((stateBrain,i)=>{
             if(stateBrain){
                 return <img src = {BrainComplete} key = {i} width = "80" height = "80" alt = "Зеленый мозг"/>
-            }else{
-                return <img src = {BrainLose} key = {i} width = "80" height = "80" alt = "Красный мозг"/>
             }
+            return <img src = {BrainLose} key = {i} width = "80" height = "80" alt = "Красный мозг"/>
         }
         )
         return(
