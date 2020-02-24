@@ -33,7 +33,7 @@ const WordCard = () =>{
         }
     }
 
-    const VarWordArr = VarArr(ReplaceWord,word);
+    const VarWordArr = VarArr(ReplaceWord, word, "Word");
     const VariableCards = VarWordArr.map((num,i) => <VariableCard 
                                                                 text = {num} 
                                                                 key = {i} 
