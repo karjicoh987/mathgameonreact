@@ -18,9 +18,9 @@ const ExpCard = () => {
     const[userPoint, setUserPoint] = useState(0);
     const[Brains] = useState(new Array());
     
-    function GameChanger(num){
+    function GameChanger(value){
         let response = eval(exp)
-        if (num === response){
+        if (value === response){
             setExp(GenExp());
             setUserPoint(userPoint + 1);
             Brains.push(true)
@@ -49,12 +49,12 @@ const ExpCard = () => {
             <div>
                 <div className = "Exp-card">
                     <AreaQuest QuestText = {exp}/>
-                    <Point point = {userPoint}/>
                 </div>
                 <div className = "flex-box">
                     {VariableCards}
                 </div>
                 <div className = "flex-box">
+                    <Point point = {userPoint}/>
                     {BrainsImg}
                 </div>
             </div>  

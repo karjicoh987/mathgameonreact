@@ -2,6 +2,7 @@ import React from 'react'
 import PropsTypes from 'prop-types'
 
 const StartButton = ({ GameStart })=>
+    
     <div className = "button-container">
         <input
             className = "button-start"

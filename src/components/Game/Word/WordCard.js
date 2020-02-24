@@ -1,26 +1,64 @@
 import React, {useState} from 'react';
-import VariableCard from '../VariableCard/VariableCard';
+
+//Массив слов
 import {arrWord} from './WordData';
-import {ReplaceWord, RandomWord} from './MethodWord';
+
+//Компоненты
+import BrainComplete from '../../../img/brainComplete.png'
+import BrainLose from '../../../img/brainLose.png'
+import VariableCard from '../VariableCard/VariableCard';
+//Иговые методы
 import VarArr from '../GameMethod';
+import {ReplaceWord, RandomWord} from './MethodWord';
+import AreaQuest from '../AreaQuest/AreaQuest';
+import Point from '../Point/Point';
 
 
 
 const WordCard = () =>{
 
+    const[word, setWord] = useState(RandomWord(arrWord));
+    const[userPoint, setUserPoint] = useState(0);
+    const[Brains] = useState(new Array());
+
     function GameChanger(value){
+    
+        if (value === word){
+            setWord(RandomWord(arrWord));
+            setUserPoint(userPoint + 1);
+            Brains.push(true);
+        }else{
+            setWord(RandomWord(arrWord));
+            Brains.push(false);
+        }
     }
 
-    const random_word = RandomWord(arrWord);
-    const VarWordArr = VarArr(ReplaceWord,random_word);
+    const VarWordArr = VarArr(ReplaceWord,word);
     const VariableCards = VarWordArr.map((num,i) => <VariableCard 
                                                                 text = {num} 
                                                                 key = {i} 
                                                                 GameChanger = {GameChanger}
-                                                            />)
+                                                            />);
+    let BrainsImg = Brains.map((stateBrain,i)=>{
+        if(stateBrain){
+            return <img src = {BrainComplete} key = {i} width = "80" height = "80" alt = "Зеленый мозг"/>
+        }
+        return <img src = {BrainLose} key = {i} width = "80" height = "80" alt = "Красный мозг"/>
+     }
+    )
+
     return(
         <div>
-            {VariableCards}
+            <div className = "Exp-card">
+                <AreaQuest QuestText = {word}/>
+            </div>
+            <div className = "flex-box">
+                {VariableCards}
+            </div>
+            <div className = "flex-box">
+                <Point point = {userPoint}/>
+                {BrainsImg}
+            </div>
         </div>
     )
 }

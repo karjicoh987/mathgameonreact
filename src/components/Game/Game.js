@@ -13,22 +13,15 @@ import ExpCard from "./exp/ExpCard";
 */
 const Game = () => {
     const[GameOn, setGameOn] = useState(false);
-    const[timer, setTimer] = useState(false);
-    setTimeout(() => {
-            setTimer(!timer);
-            setGameOn(!GameOn);
-        },
-        60000
-    )
 
     function GameStart(){
         setGameOn(!GameOn);
-        setTimer(!timer);
     }
+
     return(
         <div>
             {
-                (GameOn && timer)?
+                (GameOn)?
                     <ExpCard/>:
                     <StartButton GameStart = {GameStart}/>
             }
