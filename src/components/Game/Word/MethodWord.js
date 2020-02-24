@@ -1,12 +1,23 @@
 import {Albhabet} from './WordData'
 
+//Выбор случайного слова из коллекции
+function RandomWord(arrWord){
+    return arrWord[Math.random() * Math.floor(arrWord.length)];
+}
+
+//Перемешивание букв в слове 
 function RandomChoice(str){
+    //Разделение строки по разделителю и создание массива ArrStr
     const ArrStr = str.split("");
+    //ArrW Результирующий массив 
     let ArrW = [];
+    //ArrInd индекс в массиве
     let ArrInd = null;
     for (let i = 0; i < str.length; i++){
+        //Присвоение рандомного индекса
         ArrInd = Math.floor(Math.random() * (ArrStr.length));
         ArrW[i] = ArrStr[ArrInd];
+        //Удаление значения из Массива
         ArrStr.splice(ArrInd, 1);
     }
     
@@ -14,9 +25,14 @@ function RandomChoice(str){
 
 }
 
+//Замена букв в слове
 function ReplaceWord(str){
-    let ArrStr = str.split("");
+    //Разделение по разделению перемешанной строки  с помощью функции RandomChoice
+    let ArrStr = RandomChoice(str).split("");
+    //Индекс слова
     let wordInd = "";
+
+    //Выбор 2 букв и замена букв слове
     for(let i = 0; i<Math.floor(Math.random() * (1) + 1); i++){
         wordInd = Albhabet[Math.floor(Math.random() * Albhabet.length)];
         ArrStr[Math.floor(Math.random() * ArrStr.length)] = wordInd;
@@ -24,16 +40,4 @@ function ReplaceWord(str){
     return ArrStr.join('');
 }
 
-function GenVariable(s){
-        let FalseWord = null;
-        let TrueWord = RandomChoice(s);
-        let massWord = [];
-        massWord.push(TrueWord);
-        for (let i = 0; 3 > i; i++){
-            FalseWord = RandomChoice(ReplaceWord(s));
-            massWord.push(FalseWord);
-        }
-        return massWord.join(" ");
-}
-
-export default GenVariable;
+export {ReplaceWord, RandomWord};
