@@ -1,8 +1,8 @@
 import {Albhabet} from './WordData'
 
 //Выбор случайного слова из коллекции
-function RandomWord(arrWord){
-    return arrWord[Math.random() * Math.floor(arrWord.length)];
+function RandomWord(dict){
+    return dict[Math.floor(Math.random() * dict.length)];
 }
 
 //Перемешивание букв в слове 
