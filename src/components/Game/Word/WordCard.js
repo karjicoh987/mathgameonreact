@@ -19,6 +19,7 @@ const WordCard = () =>{
 
     const[word, setWord] = useState(RandomWord(arrWord));
     const[userPoint, setUserPoint] = useState(0);
+    const[falsePoint, setfalsePoint] = useState(0)
     const[Brains] = useState(new Array());
 
     function GameChanger(value){
@@ -29,6 +30,7 @@ const WordCard = () =>{
             Brains.push(true);
         }else{
             setWord(RandomWord(arrWord));
+            setfalsePoint(falsePoint + 1);
             Brains.push(false);
         }
     }
@@ -39,13 +41,13 @@ const WordCard = () =>{
                                                                 key = {i} 
                                                                 GameChanger = {GameChanger}
                                                             />);
-    let BrainsImg = Brains.map((stateBrain,i)=>{
-        if(stateBrain){
-            return <img src = {BrainComplete} key = {i} width = "80" height = "80" alt = "Зеленый мозг"/>
-        }
-        return <img src = {BrainLose} key = {i} width = "80" height = "80" alt = "Красный мозг"/>
-     }
-    )
+    // let BrainsImg = Brains.map((stateBrain,i)=>{
+    //     if(stateBrain){
+    //         return <img src = {BrainComplete} key = {i} width = "80" height = "80" alt = "Зеленый мозг"/>
+    //     }
+    //     return <img src = {BrainLose} key = {i} width = "80" height = "80" alt = "Красный мозг"/>
+    //  }
+    //)
 
     return(
         <div>
@@ -56,9 +58,13 @@ const WordCard = () =>{
                 {VariableCards}
             </div>
             <div className = "flex-box">
-                <Point point = {userPoint}/>
-                {BrainsImg}
+                <img src = {BrainComplete} width = "80" height = "80" alt = "Зеленый мозг"/> 
+                <Point point = {userPoint}/> 
+
+                <img src = {BrainLose} width = "80" height = "80" alt = "Красный мозг"/>
+                <Point point = {falsePoint}/>
             </div>
+                
         </div>
     )
 }
