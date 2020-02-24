@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import StartButton from './StartButton'
 import ExpCard from "./exp/ExpCard";
+import WordCard from './Word/WordCard';
 /*Состояния
     @GameOn - начало игры
     @timer - состояние запуска и остановки таймера
@@ -22,7 +23,7 @@ const Game = () => {
         <div>
             {
                 (GameOn)?
-                    <ExpCard/>:
+                    <WordCard/>:
                     <StartButton GameStart = {GameStart}/>
             }
         </div>
