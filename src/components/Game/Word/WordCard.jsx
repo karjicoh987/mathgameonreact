@@ -14,7 +14,12 @@ import AreaQuest from '../AreaQuest/AreaQuest';
 import Point from '../Point/Point';
 
 
-
+/*
+Состояния 
+@ word выборка слова из списка
+@ userPoint очки пользователя за правильный ответ
+@ falsePoint не правильный ответ
+*/
 const WordCard = () =>{
 
     const[word, setWord] = useState(RandomWord(arrWord));

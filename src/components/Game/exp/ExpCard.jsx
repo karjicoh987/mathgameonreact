@@ -11,26 +11,26 @@ import './expstyle.css';
 const ExpCard = () => {
     /* 
     Состояния
-    @exp состояние отвечающиее за отрисовку выражения
-    @userPoint очки пользователя 
+    @ exp состояние отвечающиее за отрисовку выражения
+    @ userPoint очки пользователя за правильный ответ
+    @ falsePoint не правильный ответ
     */
     const[exp, setExp] = useState(GenExp());
     const[userPoint, setUserPoint] = useState(0);
-    const[Brains] = useState(new Array());
+    const[falsePoint, setfalsePoint] = useState(0)
     
     function GameChanger(value){
         let response = eval(exp)
         if (value === response){
             setExp(GenExp());
             setUserPoint(userPoint + 1);
-            Brains.push(true)
         }else{
             setExp(GenExp());
-            Brains.push(false)
+            setfalsePoint(falsePoint + 1);
         }
     }
 
-        const VarNumArr = VarArr(FalseCalculateExp,exp)
+        const VarNumArr = VarArr(FalseCalculateExp,exp,"Exp")
         // Генерирование массива с компонентом VariableCard
         const VariableCards = VarNumArr.map((num,i) => <VariableCard 
                                                                     text = {num} 
@@ -38,13 +38,7 @@ const ExpCard = () => {
                                                                     GameChanger = {GameChanger}
                                                          />)
         
-        let BrainsImg = Brains.map((stateBrain,i)=>{
-            if(stateBrain){
-                return <img src = {BrainComplete} key = {i} width = "80" height = "80" alt = "Зеленый мозг"/>
-            }
-            return <img src = {BrainLose} key = {i} width = "80" height = "80" alt = "Красный мозг"/>
-        }
-        )
+        
         return(
             <div>
                 <div className = "Exp-card">
@@ -54,8 +48,10 @@ const ExpCard = () => {
                     {VariableCards}
                 </div>
                 <div className = "flex-box">
+                <img src = {BrainComplete} width = "80" height = "80" alt = "Зеленый мозг"/>
                     <Point point = {userPoint}/>
-                    {BrainsImg}
+                <img src = {BrainLose} width = "80" height = "80" alt = "Красный мозг"/>
+                    <Point point = {falsePoint}/>
                 </div>
             </div>  
         )
