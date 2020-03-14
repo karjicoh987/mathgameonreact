@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React from 'react';
 import Header from './components/NavPanel/Header'
 import Rule from './components/NavPanel/Rule/Rule'
 import RecordC from './components/NavPanel/Record/Record'
@@ -11,8 +11,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom' ;
-import ExpCard from './components/Game/exp/ExpCard';
-import WordCard from './components/Game/Word/WordCard';
+
 
 const App = () => {
     return(
@@ -22,8 +21,6 @@ const App = () => {
           <Switch>
             <Route path = '/' exact component = {Home}/>
             <Route path = '/game' component = {Game}/>
-            <Route path = '/game/exp' component = {ExpCard}/>
-            <Route path = '/game/word' component = {WordCard}/>
             <Route path = '/rule' component = {Rule}/>
             <Route path = '/record' component = {RecordC}/>
           </Switch>

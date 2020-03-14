@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-
-const LvlCard = ({ title, complexity, description }) =>
-    <div className = "lvlcard">
+const LvlCard = ({changer,title, description }) =>
+    <div className = "lvlcard" onClick = {()=>changer(title)}>
         <h2>
             Название уровня: { title }
         </h2>

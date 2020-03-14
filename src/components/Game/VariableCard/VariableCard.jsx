@@ -8,7 +8,7 @@ const VariableCard = ({ text, GameChanger }) =>
 
 VariableCard.propTypes = {
     GameChanger:PropTypes.func.isRequired,
-    text:PropTypes.string.isRequired
+    text:PropTypes.object
 }
 
 export default VariableCard
