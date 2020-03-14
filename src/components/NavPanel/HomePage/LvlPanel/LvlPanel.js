@@ -20,7 +20,8 @@ const LvlPanel = () => {
             {
               (!nowGame)?
                 <div className ="Lvl-box">{LvlCards}
-                </div>:<Game/>
+                </div>:
+                <Game nowGame = {nowGame}/>
             }
         </div>
             

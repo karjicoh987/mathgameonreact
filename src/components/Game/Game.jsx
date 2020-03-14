@@ -12,18 +12,26 @@ import WordCard from './Word/WordCard';
 @ContentChange - изменение контента в зависимости от нажатой вкладки в компоненте Header
 @GameStart - функция начала игры
 */
-const Game = () => {
+const Game = ({ nowGame }) => {
     const[GameOn, setGameOn] = useState(false);
 
     function GameStart(){
         setGameOn(!GameOn);
     }
-
+    
+    function currentGame(){
+        if (nowGame === 'Арифметика'){
+            return <ExpCard/>
+        }
+        if (nowGame === 'Слова'){
+            return <WordCard/>
+        }
+    }
     return(
         <div>
             {
                 (GameOn)?
-                    <WordCard/>:
+                    currentGame():
                     <StartButton GameStart = {GameStart}/>
             }
         </div>
