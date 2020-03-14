@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import PropTypes from 'prop-types'
 import StartButton from './StartButton'
 import ExpCard from "./exp/ExpCard";
 import WordCard from './Word/WordCard';
@@ -38,6 +39,8 @@ const Game = ({ nowGame }) => {
         
     )
 };
-
+Game.propTypes = {
+    nowGame:PropTypes.func.isRequired
+}
 
 export default Game
