@@ -12,15 +12,25 @@ import WordCard from './Word/WordCard';
 @GameTimerCheck - отсчет времени до конца игры
 @ContentChange - изменение контента в зависимости от нажатой вкладки в компоненте Header
 @GameStart - функция начала игры
+@timer - отсчет времени до конца игры
 */
+
+
 const Game = ({ nowGame }) => {
     const[GameOn, setGameOn] = useState(false);
-
+    //const[currentGame,setCurrentGame] = useState(choice_Game())
     function GameStart(){
         setGameOn(!GameOn);
+
+    }
+
+    //Таймер отсчета конца игры
+    if(GameOn){
+        setTimeout(()=> setGameOn(!GameOn),5000)
     }
     
-    function currentGame(){
+
+    function choice_Game(){
         if (nowGame === 'Арифметика'){
             return <ExpCard/>
         }
@@ -32,7 +42,7 @@ const Game = ({ nowGame }) => {
         <div>
             {
                 (GameOn)?
-                    currentGame():
+                    choice_Game():
                     <StartButton GameStart = {GameStart}/>
             }
         </div>
